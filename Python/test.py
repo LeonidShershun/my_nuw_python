@@ -1,22 +1,16 @@
-import re
+
+def write_employees_to_file(employee_list, path):
+    fh = open(path, 'w+')
+    for i in employee_list:
+        if type(i) == list:
+            for g in i:
+                print(g)
+                fh.write(str(g))
+        
+    fh.close()
 
 
-def find_all_links(text):
-    result = []
-    iterator = re.finditer(r"", text)
-    for match in iterator:
-        result.append(match.group())
-    return result
-    
+path = 'test_for_file2.txt'
+employee_list = [['Robert Stivenson,28', 'Alex Denver,30'], ['Drake Mikelsson,19']]
 
-
-
-text =  'The main search site in the world is https://www.google.com The main social network for people in the world is https://www.facebook.com But programmers have their own social network http://github.com There they share their code. some url to check https://www..facebook.com www.facebook.com ' 
-print()
-print(find_all_links(text))
-print(['https://www.google.com', 'https://www.facebook.com', 'http://github.com'])
-print()
-
-
-
-
+write_employees_to_file(employee_list, path)

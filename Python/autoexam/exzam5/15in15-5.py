@@ -36,7 +36,7 @@ import re
 
 def find_all_links(text):
     result = []
-    iterator = re.finditer(r"", text)
+    iterator = re.finditer(r"([a-z]{4,5}(://)[a-zA-Z_]{1,}(.){1}[a-zA-Z_]{1,}(.){1}[a-z]{2,3})", text)
     for match in iterator:
         result.append(match.group())
     return result
