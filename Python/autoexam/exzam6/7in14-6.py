@@ -17,15 +17,14 @@ import re
 def sanitize_file(source, output):
     sec = str()
     with open(source, 'r') as fh:
-        pop = True
-        while pop == True:
+        while True:
             data = fh.readline()
             data1 = re.finditer("[^0-9]{1,}", data)
             for match in data1:
                 sec += str(match.group())
                 print(sec)
             if not data:
-                pop = False 
+                break 
     with open(output, 'w') as fh:
          fh.write(sec)   
 

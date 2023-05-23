@@ -1,16 +1,24 @@
-
-def write_employees_to_file(employee_list, path):
-    fh = open(path, 'w+')
-    for i in employee_list:
-        if type(i) == list:
-            for g in i:
-                print(g)
-                fh.write(str(g))
-        
-    fh.close()
+import re
 
 
-path = 'test_for_file2.txt'
-employee_list = [['Robert Stivenson,28', 'Alex Denver,30'], ['Drake Mikelsson,19']]
+def balanced(expression):
+    count = 0 
+    for char in expression:
+        if char == "(":
+            count += 1
+        elif char == ")":
+            if count == 0:
+                return False
+            count -= 1 
+    return count == 0
 
-write_employees_to_file(employee_list, path)
+print(balanced(input()))
+
+
+
+
+
+
+
+expression = '(x-{[8*(2*5]}+(2)'
+#print(balanced(expression))
